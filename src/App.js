@@ -9,13 +9,11 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 class App extends Component {
-    state = {
-      uid: -1
-    };
-
     constructor(){
         super();
-
+        this.state = {
+          uid: -1
+        };
         this.muiTheme = getMuiTheme({
             palette: {
                 textColor: '#FFF',

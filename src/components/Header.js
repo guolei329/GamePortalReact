@@ -10,10 +10,6 @@ import 'react-toastify/dist/ReactToastify.min.css';
 // let  authenticated = true;
 
 export default class Header extends React.Component {
-    state = {
-      uid: null,
-      username: null
-    };
 
     componentDidMount() {
       let  self = this;
@@ -39,7 +35,9 @@ export default class Header extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      uid: null,
+      username: null
     };
   }
   toggle() {

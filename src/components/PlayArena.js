@@ -15,6 +15,7 @@ export default class PlayArena extends Component {
           visibleTo: []
       };
       this.spec = null;
+      this.num = 0;
   }
 
   loadSpec(){
@@ -61,14 +62,17 @@ export default class PlayArena extends Component {
               piece.pieceImages = [];
               let images = snapshot.val().images;
               let numImages = images.length;
+              self.num = 0;
               images.forEach((imageId)=>{
                   let imageRef = db.ref('gameBuilder/images/'+imageId.imageId);
                   imageRef.once('value').then(function(snapshot) {
                       let pieceImage = snapshot.val().downloadURL;
                       piece.pieceImages.push(pieceImage);
                       if(piece.pieceImages.length === numImages){
+                          //self.allPieces.push(piece);
+                          self.num++;
                           self.allPieces[i] = piece;
-                          if(self.allPieces.length === numPieces){
+                          if(self.num === numPieces){
                               self.setState({
                                   pieces:self.allPieces
                               });
